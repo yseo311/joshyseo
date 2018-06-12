@@ -1,0 +1,12 @@
+2.1(10pts): Minor but acceptable directory-wise difference. All necessary files are up.
+2.2(10pts): Data dictionary contains name and descriptions of the variables
+3.Data Prep(10pts): Contains a header, imported all necessary files, relative paths are used
+3.Exported Data Summaries(10pts): output/ contains all files
+4.1(10pts): contains all charts in right code
+4.2(10pts): correct
+5.1(10pts): correct
+5.2(10pts): correct
+6.1(10pts): correct
+6.2(10pts): correct
+7(10pts): correct
+

@@ -1,0 +1,68 @@
+---
+title: "HW3"
+author: "Josh Seo"
+date: "3/19/18"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE, fig.path = 'images/')
+library(ggplot2)
+
+```
+
+```
+#Bash commands (window user)
+2.1
+cut -d "," -f 2 nba2017-roster.csv | tail +2 | sort | uniq | head -n 5 > team-names.txt
+
+2.2
+cut -d "," -f 3 nba2017-roster.csv | tail +2 | sort | uniq | head -n 5 > position-names.txt
+
+2.3
+cut -d "," -f 7 nba2017-roster.csv | tail +2 | sort -n | uniq -c | head -n 5 > experience-counts.txt
+
+2.4
+grep -e LAC -e team nba2017-roster.csv > LAC.csv
+cat LAC.csv
+
+2.5
+grep -e LAL nba 2017-roster.csv | cut -d "," -f 6 | tail +2 | sort -n | uniq -c
+
+**2.6
+cut -c 2 -d "," -f 2 nba2017-roster.csv | sort | grep CLE | uniq -c
+
+2.7
+grep -e GSW -e team nba2017-roster.csv | cut -d "," -f 1,4,5 > gsw-height-weight.csv
+cat gsw-height-weight.csv
+
+2.8
+(cut -d "," -f 1,8 nba2017-roster.csv | grep salary & sort -k 8 -n -r -t "," nba2017-roster.csv | cut -d "," -f 1,8 | head -n 10) > top10-salaries.csv
+```
+
+```{r part 3}
+
+#1 Assume that the ??successful?? event is getting a ??six?? when rolling a die. Consider rolling a fair die 10 times. Use bin_probability() to find the probability of getting exactly 3 sixes.
+source('./code/binomial-functions.R')
+
+bin_probability(10,3,(1/6))
+
+#2 Use bin_distribution() to obtain the distribution of the number of ??sixes?? when rolling a loaded die 10 times, in which the number ??six?? has probability of 0.25. Make a plot of this distribution.
+z <- bin_distribution(10, 0.25)
+z
+plot(z)
+
+
+#3 Use bin_probability(), and a for loop, to obtain the probability of getting more than 3 heads in 5 tosses with a biased coin of 35% chance of heads.
+j = 0
+answer <- for(i in 4:5){
+  j <- j + bin_probability(5,i,0.35)
+}
+j
+
+#4 Use bin_distribution() to obtain the probability distribution of the number of heads when tossing a loaded coin 15 times, with 35% chance of heads. Make a plot of this distribution.
+w <- bin_distribution(trials = 15, prob = 0.35)
+w
+plot(w)
+
+```
