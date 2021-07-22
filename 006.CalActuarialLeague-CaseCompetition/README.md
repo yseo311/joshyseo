@@ -1,5 +1,5 @@
-# UC Berkeley Spring 2018 Stat 133 Intro to R 
-HW04 Strings and RegEx
+# UC Berkeley Cal Actuarial League
+##Case Competition | Spring 2018
 
 Author: Josh Seo
-Updated: Apr. 13, 2018
+Updated: Mar. 10, 2018
