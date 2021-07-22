@@ -1,5 +1,7 @@
-# UC Berkeley Spring 2018 Stat 133 Intro to R 
-HW04 Strings and RegEx
-
-Author: Josh Seo
-Updated: Apr. 13, 2018
+# The Infinite Actuary - R Course
+Author: Josh Seo | Updated: Apr. 13, 2018
+A. Foundational Knowledge <br>
+B. Data Clean-up <br>
+C. Data Visualization <br>
+D. Predictive Analytics <br>
+E. Communicating Results in R <br>
