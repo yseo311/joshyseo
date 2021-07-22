@@ -1,5 +1,5 @@
 # UC Berkeley Spring 2018 Stat 133 Intro to R 
-HW04 Strings and RegEx
+HW05 R Package and dieroller
 
 Author: Josh Seo
-Updated: Apr. 13, 2018
+Updated: Apr. 27, 2018
