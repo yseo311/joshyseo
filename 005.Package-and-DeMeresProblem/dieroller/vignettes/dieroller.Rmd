@@ -1,0 +1,147 @@
+---
+title: "dieroller"
+author: "JOSH SEO"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{dieroller}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+library(dieroller)
+```
+
+
+## Die Rolling
+The package '"dieroller"' is a minimal implementation for simulating rolling a die a given number of times and to visualize the relative frequencies in such a series of rolls.
+
+## Creating a 'die'
+The first step is to create a '"die"' object with the function 'die()':
+```{r}
+fair_die <- die()
+fair_die
+```
+
+In order to create a different "die" object write:
+'die()' function should have two arguments:
+sides: vector of six elements, by default numbers 1, 2, 3, 4, 5, 6.
+prob: vector of probabilities for each side (all equal to 1/6 by default)
+An auxiliary function check_sides(), called by die(), checks the validity of the argument sides.
+An auxiliary function check_prob(), called by die(), checks the validity of the argument prob.
+```{r}
+# die with non-standard sides
+weird_die <- die(sides = c('i', 'ii', 'iii', 'iv', 'v', 'vi'))
+weird_die
+
+# create a loaded die
+loaded_die <- die(prob = c(0.075, 0.1, 0.125, 0.15, 0.20, 0.35))
+loaded_die
+```
+
+## Rolling the die
+To roll an object "die", you will have to use 'roll()' function.
+'roll()' function should have two arguments:
+die: object of class "die".
+times: number of times to roll the die (default value of 1).
+An auxiliary function check_times(), called by roll(), checks the validity of the argument times.
+The output of roll() will be a list containing:
+rolls: vector with outputs of the rolls
+sides: vector with the sides of the die
+prob: vector with probabilities for each side of the die
+total: total number of rolls (i.e. times)
+
+Here’s a basic example for 'roll()':
+```{r}
+# roll fair die 50 times
+fair_die <- die()
+set.seed(123)
+fair50 <- roll(fair_die, times = 50)
+fair50
+```
+
+## Summarize
+'summary()' for "roll" objects a "summary.roll" object. 
+The output is a data frame with 3 columns:
+side: the sides of the rolled die.
+count: the frequency (count) of each side of the rolled die.
+prop: the relative frequency (proportion) of each side of the rolled die.
+Example:
+```{r}
+set.seed(123)
+fair_50rolls <- roll(fair_die, times = 50)
+fair50_sum <- summary(fair_50rolls)
+fair50_sum
+```
+
+## Plotting
+'plot()' for "roll" objects returns a barchart of frequencies (relative frequencies of each side of the "die"). 
+```{r}
+# plot method
+plot(fair_50rolls)
+```
+
+## Extra functions
+To extract a desired value of a given roll:
+```{r}
+# roll a fair die 500 times
+set.seed(123)
+fair_die <- die()
+fair500 <- roll(fair_die, times = 500)
+# extracting roll in position 500
+fair500[500]
+```
+
+To replace a value of a given roll with a desired value:
+```{r}
+# replacing the 500th roll
+fair500[500] <- 1
+fair500[500]
+```
+
+To add a desired number(times) of rolls to a given roll:
+```{r}
+# adding 100 rolls
+fair600 <- fair500 + 100
+summary(fair600)
+```
+
+## Styles
+
+The `html_vignette` template includes a basic CSS theme. To override this theme you can specify your own CSS in the document metadata as follows:
+
+    output: 
+      rmarkdown::html_vignette:
+        css: mystyles.css
+
+## Figures
+
+The figure sizes have been customised so that you can easily put two images side-by-side. 
+
+```{r, fig.show='hold'}
+plot(1:10)
+plot(10:1)
+```
+
+You can enable figure captions by `fig_caption: yes` in YAML:
+
+    output:
+      rmarkdown::html_vignette:
+        fig_caption: yes
+
+Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
+
+## More Examples
+
+You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
+
+```{r, echo=FALSE, results='asis'}
+knitr::kable(head(mtcars, 10))
+```
+
+Also a quote using `>`:
+
+> "He who gives up [code] safety for [code] speed deserves neither."
+([via](https://twitter.com/hadleywickham/status/504368538874703872))
