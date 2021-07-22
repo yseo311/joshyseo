@@ -1,5 +1,5 @@
 # The Infinite Actuary - R Course
-Author: Josh Seo | Updated: Apr. 13, 2021 <br>
+Author: Josh Seo | Updated: Apr. 28, 2021 <br>
 A. Foundational Knowledge <br>
 B. Data Clean-up <br>
 C. Data Visualization <br>
