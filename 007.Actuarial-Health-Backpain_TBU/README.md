@@ -1,5 +1,6 @@
-# UC Berkeley Spring 2018 Stat 133 Intro to R 
-HW04 Strings and RegEx
+# Actuarial Analysis - Backpain
+1. Life Expectancy with vs. without Medication Consumption
+2. Probability of a Successful Surgery
 
 Author: Josh Seo
-Updated: Apr. 13, 2018
+Updated: Jul. 11, 2018
