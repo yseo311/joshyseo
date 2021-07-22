@@ -1,3 +1,9 @@
+# UC Berkeley Spring 2018 Stat 133 Intro to R 
+HW02 GSW Shot Charts
+
+Author: Josh Seo
+Updated: Feb. 23, 2018
+
 hw02/
   README.md
   data/
